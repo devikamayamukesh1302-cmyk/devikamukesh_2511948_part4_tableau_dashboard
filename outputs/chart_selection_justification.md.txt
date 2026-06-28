@@ -1,0 +1,216 @@
+# Chart Selection Justification
+
+## Executive Dashboard – Chart Selection Justification
+
+This document explains the reasoning behind the selection of each visualization used in the Executive Sales Dashboard. Each chart was chosen to answer a specific business question while following Tableau visualization best practices and maintaining a clean, executive-friendly dashboard.
+
+---
+
+# 1. Sales Trend View
+
+### Chart Type
+**Line Chart**
+
+### Business Question
+How have sales changed over time?
+
+### Why This Chart?
+A line chart is the most suitable visualization for showing trends over time. It clearly displays increases, decreases, and seasonal patterns in sales.
+
+### Fields Used
+- Columns: Order Date (Month)
+- Rows: SUM(Sales)
+- Color: Region (Optional)
+- Filters: Order Date, Region
+
+### Design Principle Applied
+- Chronological time series
+- Minimal clutter
+- Clear axis labels
+- Consistent color palette
+
+### Mistake Avoided
+Avoided using pie charts or bar charts for time-series data, as they make trend analysis more difficult.
+
+---
+
+# 2. Regional Performance View
+
+### Chart Type
+**Horizontal Bar Chart**
+
+### Business Question
+Which regions contribute the highest sales and profit?
+
+### Why This Chart?
+Horizontal bar charts provide an easy comparison between regions and allow long region names to remain readable.
+
+### Fields Used
+- Rows: Region
+- Columns: SUM(Sales)
+- Color: SUM(Profit)
+- Labels: Sales
+
+### Design Principle Applied
+- Descending sorting by Sales
+- Color used to indicate profitability
+- Easy visual comparison
+
+### Mistake Avoided
+Avoided pie charts because comparing multiple regions is much easier with bar charts.
+
+---
+
+# 3. Category Profitability View
+
+### Chart Type
+**Horizontal Bar Chart**
+
+### Business Question
+Which product categories and sub-categories generate the highest profit?
+
+### Why This Chart?
+Horizontal bars effectively compare profit across categories while accommodating long category names.
+
+### Fields Used
+- Rows: Category and Sub-Category
+- Columns: SUM(Profit)
+- Color: Profit
+- Labels: Profit
+
+### Design Principle Applied
+- Sorted by Profit
+- Consistent color usage
+- Clear labels
+
+### Mistake Avoided
+Avoided stacked charts that make direct comparison of profits more difficult.
+
+---
+
+# 4. Customer Segment View
+
+### Chart Type
+**Stacked Bar Chart**
+
+### Business Question
+How does business performance vary across customer segments?
+
+### Why This Chart?
+A stacked bar chart compares total sales among customer segments while showing the contribution of different product categories.
+
+### Fields Used
+- Rows: Customer Segment
+- Columns: SUM(Sales)
+- Color: Category
+- Filters: Region
+
+### Design Principle Applied
+- Consistent colors
+- Clear grouping
+- Easy comparison
+
+### Mistake Avoided
+Avoided multiple pie charts because they make segment comparisons difficult.
+
+---
+
+# 5. Shipping Performance View
+
+### Chart Type
+**Bar Chart**
+
+### Business Question
+Which shipping modes provide the best delivery performance?
+
+### Why This Chart?
+A bar chart provides a straightforward comparison of average delivery time across shipping methods.
+
+### Fields Used
+- Rows: Ship Mode
+- Columns: AVG(Delivery Days)
+- Color: Shipping Delay Bucket
+- Labels: Average Delivery Days
+
+### Design Principle Applied
+- Sorted by delivery time
+- Color highlights delay categories
+- Simple layout
+
+### Mistake Avoided
+Avoided line charts because shipping modes are categorical rather than continuous.
+
+---
+
+# 6. Discount vs Profit View
+
+### Chart Type
+**Box-and-Whisker Plot**
+
+### Business Question
+How do different discount levels affect profitability?
+
+### Why This Chart?
+The Box-and-Whisker Plot summarizes the distribution of profit across discount ranges. It highlights the median, spread, and outliers, making it easy to evaluate the financial impact of discount strategies.
+
+### Fields Used
+- Columns: Discount Bucket
+- Rows: Profit
+- Color: Discount Bucket
+- Filters: Category, Region
+
+### Design Principle Applied
+- Grouped discount ranges
+- Outlier identification
+- Clear comparison of distributions
+
+### Mistake Avoided
+Avoided a scatter plot because a large number of data points can create clutter and make interpretation difficult.
+
+---
+
+# 7. Return Analysis View
+
+### Chart Type
+**Bar Chart**
+
+### Business Question
+Which categories, regions, or customer segments experience the highest return rates?
+
+### Why This Chart?
+A bar chart enables quick comparison of returned orders across business dimensions.
+
+### Fields Used
+- Rows: Category (or Region)
+- Columns: COUNT(Return Flag)
+- Color: Return Flag
+- Filters: Customer Segment
+
+### Design Principle Applied
+- Simple comparison
+- Clear labels
+- Consistent colors
+
+### Mistake Avoided
+Avoided pie charts because they are less effective when comparing multiple categories.
+
+---
+
+# Dashboard-Level Design Principles
+
+The overall dashboard follows these visualization principles:
+
+- Appropriate chart type selected for each business question.
+- Consistent color palette across all views.
+- Clear titles and axis labels.
+- KPI cards placed at the top for quick executive review.
+- Interactive filters for Region, Category, Customer Segment, Ship Mode, and Order Date.
+- Charts sorted to improve readability.
+- Avoidance of unnecessary 3D effects and decorative visuals.
+- Balanced spacing to minimize clutter and improve usability.
+
+---
+
+# Summary
+
+Each visualization was selected based on the business question it answers and the type of data being analyzed. The dashboard emphasizes clarity, consistency, and ease of interpretation, enabling leadership to quickly identify sales trends, profitability drivers, operational risks, and business opportunities. The combination of KPI cards, interactive filters, and well-chosen charts supports effective, data-driven decision-making.
